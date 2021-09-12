@@ -1,0 +1,208 @@
+.container {
+    padding: 20px 0;
+    
+    @media only screen and (max-width: 768px) {
+        padding: 0px;
+    }
+}
+
+.blog-post {
+    width: 54vw;
+    padding: 3vw;
+    margin: 0 auto;
+    color: $COLOR_BLOG_BODY_TEXT;
+    background-color: white;
+    // font-family: $FONT_BODY;
+    border: 0.5rem solid #8c8c8c;
+    display: flex;
+    flex-direction: column;
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+        border: none;
+    }
+
+    &__heading {
+        padding: 0 1.875rem;
+
+        @media only screen and (max-width: 767px) {
+            padding: 0;
+            width: 100%;
+        }
+
+        h1 {
+            // font-family: $FONT_BODY;
+            font-size: remFont(28);
+            font-weight: $WEIGHT_FONT_HEADING;
+            line-height: 1.2;
+            color: $COLOR_BLOG_TITLE_TEXT;
+            margin: 0 0 1vh 0;
+
+            @media only screen and (max-width: 768px) {
+                font-size: remFont(23);
+            }
+        }
+        
+        .albums {
+            span {
+                background-color: #f0f8ff !important;
+                text-transform: capitalize;
+                font-weight: 800;
+            }
+        }
+
+        .divider {
+            height: 0.3rem;
+            background-color: #8c8c8c;
+        }
+    }
+
+    &__article {
+        // max-width: inherit;
+        padding: 1.875rem;
+        margin: 0 auto;
+        min-height: 100%;
+        line-height: 1.8;
+        // font-family: $FONT_BODY;
+        font-weight: $WEIGHT_FONT_BODY;
+        color: $COLOR_BLOG_BODY_TEXT;
+        word-break: break-word;
+        ::v-deep {
+
+            @media only screen and (max-width: 767px) {
+                width: 100%;
+                padding: 1rem 0rem;
+                font-size: 0.875rem;
+            }
+
+            @for $i from 1 through 6 {
+                h#{$i} {
+                    line-height: 1.2;
+                    margin: remFont(16) auto;
+                    // font-family: $FONT_BODY;
+                    color: $COLOR_BLOG_TITLE_TEXT;
+                    font-size: remFont($HEADING_BASE_FONT_SIZE + $HEADING_SCALE * (6 - $i));
+
+                    // border-bottom: 1px solid #eee;
+                    @media only screen and (max-width: 768px) {
+                        font-size: remFont($HEADING_BASE_FONT_SIZE_MOBILE + $HEADING_SCALE * (6 - $i));
+                    }
+                }
+            }
+
+            p,
+            blockquote,
+            ul,
+            ol,
+            dl,
+            table {
+                margin-bottom: remFont(8)
+            }
+             
+            blockquote {
+                margin: 1rem 0;
+                padding: .25rem 0 .25rem 1rem;
+                color: #999;
+                border-left: .2rem solid #dfe2e5;
+            }
+
+            b,
+            strong {
+                font-weight: bold;
+            }
+
+            li {
+                ul {
+                    margin: remFont(3.2) auto;
+                }
+            }
+
+            table {
+                max-width: 100%;
+                margin: 1rem auto;
+                overflow: auto;
+                text-align: left;
+                break-inside: auto;
+                table-layout: fixed;
+                border-collapse: collapse;
+
+                tr:nth-child(2n),
+                thead {
+                    background-color: #f8f8f8;
+                }
+
+                th,
+                td {
+                    border: 1px solid #dfe2e5;
+                    padding: 6px 13px;
+                }
+            }
+
+            p {
+                letter-spacing: .0625rem;
+
+                img {
+                    display: block;
+                    margin: auto;
+                    max-width: 100%;
+                    padding-bottom: 1rem;
+                }
+            }
+            
+            section {
+                img {
+                    display: block;
+                    margin: auto;
+                    max-width: 100%;
+                    padding-bottom: 1rem;
+                }
+            }
+
+            a {
+                color: #0127f8;
+                position: relative;
+                font-weight: 600;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            
+            pre {
+                max-height: 600px!important;
+                overflow: auto;
+            }
+                
+            code:not([class*='language-']) {
+                margin: remFont(2);
+                padding: remFont(2) remFont(4) !important;
+                color: #a52a2a;
+                border-radius: 0.1rem;
+                background-color: #0000000a !important;
+            }
+        }
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        padding: 0 3.75rem;
+
+        @media only screen and (max-width: 767px) {
+            padding: 0;
+            width: 100%;
+        }
+
+        .post_date {
+            text-align: end;
+            
+            color: $COLOR_BLOG_TIME_TEXT;
+
+            @media only screen and (max-width: 767px) {
+                text-align: start;
+                padding: 0;
+                width: 100%;
+            }
+        }
+    }
+}
